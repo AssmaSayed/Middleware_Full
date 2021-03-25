@@ -21,6 +21,7 @@ class User extends Authenticatable
         // 'prenom',
         'email',
         'password',
+        'role_id' //on rajoute role_id qui fait reference au model Role
     ];
 
     /**
@@ -41,4 +42,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function roles(){
+        return $this->belongsTo(Role::class,'role_id');
+    }
+
 }

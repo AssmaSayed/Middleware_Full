@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class BackOfficeController extends Controller
 {
+    public function __construct()
+{
+	$this->middleware(['roleVerification','auth']);
+}
     /**
      * Display a listing of the resource.
      *
